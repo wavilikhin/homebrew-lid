@@ -1,45 +1,47 @@
-# Lidless for Homebrew
+# Lidless
 
-A native macOS menu bar app to keep your MacBook awake with its lid open or closed, on battery or external power.
+Keep your Mac awake, even with the lid closed.
 
-Previously named **Lid**. The Homebrew command remains the same. Version 1.1.0 installs `Lidless.app`; upgrading replaces the old `Lid.app`.
+A small menu bar app with three switches:
+
+- **Keep awake** — prevent system sleep on battery or external power.
+- **Keep display on** — disable the screen saver and display sleep. Turning it off restores your previous timers.
+- **Launch at login** — start Lidless when you sign in.
+
+The panel stays the same size when you change a setting. Click the status line for details.
 
 ## Install
 
+Requires Apple Silicon and macOS 13 or later.
+
 ```sh
-brew install --cask wavilikhin/lid/lid
+brew tap wavilikhin/lid
+brew trust --cask wavilikhin/lid/lidless
+brew install --cask lidless
 open -a Lidless
 ```
 
-Homebrew installs `Lidless.app` into `/Applications`. Requires an Apple Silicon Mac and macOS 13 or later, with a working Homebrew installation.
+Tap and trust are one-time setup. On Homebrew versions before 7, skip the `brew trust` line.
 
-The app is currently ad-hoc signed, **not notarized**. macOS may block the first launch. If that happens, review the app and approve it in **System Settings → Privacy & Security → Open Anyway**. This tap does not disable Gatekeeper or remove quarantine attributes.
+Approve **Set Up Access** once so routine toggles need no password. After an update, approve access again if prompted.
 
-## Use
+The app is not notarized. If macOS blocks the first launch, use **System Settings → Privacy & Security → Open Anyway**.
 
-- Switch **on** to disable system sleep, including lid-close sleep.
-- Switch **off** to allow normal sleep again.
-- Click the menu bar laptop to open the panel; the dot means Keep awake is on.
-- Approve **Set Up Access** once to install the helper. Routine toggles then need no password.
-- Open the gear menu to refresh status, repair access, or remove the helper.
-
-App updates may require approving helper access again. The display can still turn off. The sleep setting persists after quitting or restarting, and reflects changes made outside the app.
-
-Keep the Mac ventilated while awake. Battery depletion, shutdown, and hardware protection still apply. Lidless uses macOS's undocumented `pmset disablesleep` setting; behavior may vary by hardware and OS version.
-
-## Update or remove
+## Update
 
 ```sh
 brew update
-brew upgrade --cask wavilikhin/lid/lid
+brew upgrade --cask lidless
 ```
 
-Turn the switch off before removing Lidless if you want to restore normal sleep:
+Previously installed as `lid`? Homebrew migrates that name to `lidless`. If needed, run `brew migrate --cask lid` after updating. On Homebrew 7+, trust the new name with `brew trust --cask wavilikhin/lid/lidless`.
+
+## Remove
+
+Turn **Keep awake** and **Keep display on** off first to restore normal sleep and your previous display timers. Quitting the app does not reset them.
 
 ```sh
-brew uninstall --cask lid
+brew uninstall --cask lidless
 ```
 
-Uninstalling removes the helper and may request administrator approval. It does not change the sleep setting. If you already removed the app, restore normal sleep with `sudo pmset -a disablesleep 0`.
-
-This repository distributes the Homebrew cask and app binaries. The application source is maintained separately in a private repository.
+Uninstalling removes the helper and may ask for administrator approval. Keep the Mac ventilated while it is awake.
