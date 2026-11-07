@@ -23,7 +23,7 @@ open -a Lidless
 
 Tap and trust are one-time setup. On Homebrew versions before 7, skip the `brew trust` line.
 
-Approve **Set Up Access** once so routine toggles need no password. After an update, approve access again if prompted.
+The setup card replaces the sleep switches until you approve **Set Up Access**. Launch at login remains available. Routine toggles then need no password. After an update, use **Repair Access** if prompted.
 
 The app is not notarized. If macOS blocks the first launch, use **System Settings → Privacy & Security → Open Anyway**.
 
@@ -35,6 +35,8 @@ brew upgrade --cask lidless
 ```
 
 Previously installed as `lid`? Homebrew migrates that name to `lidless`. If needed, run `brew migrate --cask lid` after updating. On Homebrew 7+, trust the new name with `brew trust --cask wavilikhin/lid/lidless`.
+
+If Homebrew reports that `/Applications/Lidless.app` is missing, recover the installation with `brew reinstall --cask --force lidless`.
 
 ## Remove
 
