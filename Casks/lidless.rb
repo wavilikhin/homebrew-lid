@@ -1,6 +1,6 @@
 cask "lidless" do
-  version "1.2.1"
-  sha256 "deb3141d57b5c6f63342e227adbde3a7653bc53a42a7f25a1b7b6813549c16f0"
+  version "1.2.2"
+  sha256 "8a82eef28c898c4ab3bc9754b241b9542616cf4a061008e46e0308c216dab739"
 
   url "https://github.com/wavilikhin/homebrew-lid/releases/download/v#{version}/Lidless-#{version}-arm64.zip"
   name "Lidless"

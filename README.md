@@ -8,7 +8,7 @@ A small menu bar app with three switches:
 - **Keep display on** — disable the screen saver and display sleep. Turning it off restores your previous timers.
 - **Launch at login** — start Lidless when you sign in.
 
-The panel stays the same size when you change a setting. Click the status line for details.
+The panel stays the same size when you change a setting. Errors appear as a clickable indicator beside the menu. Sleep-setting details and **Repair Access** are in the menu.
 
 ## Install
 
